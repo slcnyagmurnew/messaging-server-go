@@ -131,8 +131,7 @@ func (p *postgresTemplate) GetSentMessages() ([]model.Message, error) {
     				phone,
     				isSent
     			FROM messages
-             	WHERE isSent is TRUE
-             	LIMIT 10`,
+             	WHERE isSent is TRUE`,
 	)
 
 	if err != nil {
