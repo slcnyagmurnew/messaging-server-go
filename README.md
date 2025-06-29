@@ -83,7 +83,7 @@ The service relies on several environment variables (e.g. in your `docker-compos
 ## Installation
 1. Clone the repository
     ```
-   git clone https://github.com/yourorg/messaging-server.git
+   git clone https://github.com/slcnyagmurnew/messaging-server-go.git
     cd messaging-server
    ```
 2. Start docker compose
