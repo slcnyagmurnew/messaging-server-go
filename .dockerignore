@@ -1,0 +1,24 @@
+# IDEs
+.idea/
+.vscode/
+
+# Git
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+
+# Tests and local scripts
+*.test
+*.md
+scripts/
+tests/
+coverage*
+
+# Go build/cache artifacts
+bin/
+vendor/
+
+# Ignore dev envs
+dev.env

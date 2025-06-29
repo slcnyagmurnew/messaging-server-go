@@ -1,0 +1,118 @@
+basePath: /
+definitions:
+  handler.ActionRequest:
+    properties:
+      action:
+        description: '"start" or "stop"'
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: A simple scheduler-based messaging service.
+  title: Messaging Server API
+  version: "1.0"
+paths:
+  /:
+    get:
+      description: Returns a welcome message
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Show service status
+      tags:
+      - root
+  /api/messaging:
+    post:
+      consumes:
+      - application/json
+      description: Start or stop the message-sending scheduler based on the provided
+        action
+      parameters:
+      - description: 'Action to perform: ''start'' or ''stop'''
+        in: body
+        name: action
+        required: true
+        schema:
+          $ref: '#/definitions/handler.ActionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Control scheduler
+      tags:
+      - scheduler
+  /health:
+    get:
+      description: Returns OK if the service is alive
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Health check
+      tags:
+      - health
+  /list:
+    get:
+      description: Show the messages that sent
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: List messages sent
+      tags:
+      - scheduler
+schemes:
+- http
+swagger: "2.0"
